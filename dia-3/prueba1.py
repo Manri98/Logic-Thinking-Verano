@@ -38,14 +38,35 @@ def main():
 	##Carga de imágenes
 	fondo = pygame.image.load("fondo.jpg").convert()
 	tux = pygame.image.load("tux.png").convert_alpha()
+	tux_X = 550
+	tux_Y = 200
     
     ##Colocamos imagenes
 	screen.blit(fondo, (0, 0))
-	screen.blit(tux, (550, 200))
+	screen.blit(tux, (tux_X, tux_Y))
 	
 	##Aplicamos cambios
 	pygame.display.flip()
-	a = raw_input("")
+	
+	key = 0
+	pygame.key.name(key)
+	print(key)
+	
+	
+	
+	##bucle principal
+	while True:
+		#Detecta eventos de teclado y ratón
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				sys.exit()
+			elif event.type == pygame.K_LEFT:
+				tux_X -= 5
+				
+		screen.blit(fondo, (0, 0))
+		screen.blit(tux, (tux_X, tux_Y))
+		pygame.display.flip()
+		
 	return 0
 
 if __name__ == '__main__':
