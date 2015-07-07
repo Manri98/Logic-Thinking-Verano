@@ -47,12 +47,7 @@ def main():
 	
 	##Aplicamos cambios
 	pygame.display.flip()
-	
-	key = 0
-	pygame.key.name(key)
-	print(key)
-	
-	
+
 	
 	##bucle principal
 	while True:
@@ -60,7 +55,7 @@ def main():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				sys.exit()
-			elif event.type == pygame.K_LEFT:
+			elif event.type == pygame.K_RIGHT:
 				tux_X -= 5
 				
 		screen.blit(fondo, (0, 0))
