@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2000"
+   height="1500"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="press start.svg"
+   inkscape:export-filename="/home/carlos/Documentos/Class Wars/Sprites/Intro/press start.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4629">
+      <stop
+         style="stop-color:#ff0000;stop-opacity:1;"
+         offset="0"
+         id="stop4631" />
+      <stop
+         style="stop-color:#ff0000;stop-opacity:0;"
+         offset="1"
+         id="stop4633" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4629"
+       id="radialGradient4699"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(2.1565317,0,0,0.27197084,-1012.5997,410.59298)"
+       cx="875.54852"
+       cy="563.97876"
+       fx="875.54852"
+       fy="563.97876"
+       r="382.67099" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="1033.2855"
+     inkscape:cy="680.61197"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1280"
+     inkscape:window-height="965"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,447.63782)">
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       id="rect2985"
+       width="2000"
+       height="1500"
+       x="0"
+       y="-447.63782" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3853"
+       style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;font-family:Penguin Attack;-inkscape-font-specification:Penguin Attack"
+       transform="matrix(1.4442458,0,0,1.4442458,-264.50724,-846.29845)"><flowRegion
+         id="flowRegion3855"
+         style="fill:url(#radialGradient4699);fill-opacity:1"><rect
+           id="rect3857"
+           width="1134.2858"
+           height="745.71429"
+           x="491.42856"
+           y="468.57144"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#b3b3b3;fill-opacity:1;font-family:Penguin Attack;-inkscape-font-specification:Penguin Attack" /></flowRegion><flowPara
+         id="flowPara3859"
+         style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill-opacity:1;font-family:'8-bit Limit O BRK';-inkscape-font-specification:'8-bit Limit O BRK';fill:#b3b3b3">CLASS WARS</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4677"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#999999;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-262.61687,-447.63782)"><flowRegion
+         id="flowRegion4679"><rect
+           id="rect4681"
+           width="831.42853"
+           height="122.85714"
+           x="868.57141"
+           y="640"
+           style="fill:#999999" /></flowRegion><flowPara
+         id="flowPara4683"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#666666;font-family:'8-bit Limit BRK';-inkscape-font-specification:'8-bit Limit BRK'">DESIGNED AND DEVELOPED BY:</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4685"
+       style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#e6e6e6;fill-opacity:1;stroke:none;font-family:'8-bit Limit BRK';-inkscape-font-specification:'8-bit Limit BRK'"
+       transform="translate(-256.49325,-470.03769)"><flowRegion
+         id="flowRegion4687"><rect
+           id="rect4689"
+           width="651.42859"
+           height="497.14285"
+           x="962.85712"
+           y="840"
+           style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#e6e6e6;font-family:'8-bit Limit BRK';-inkscape-font-specification:'8-bit Limit BRK'" /></flowRegion><flowPara
+         id="flowPara4691"
+         style="fill:#666666">CARLOS MANRIQUE</flowPara><flowPara
+         id="flowPara4693"
+         style="fill:#666666">ALEJANDRO FLORES</flowPara><flowPara
+         id="flowPara4695"
+         style="fill:#666666">JOSE MANUEL ESTRADA</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4703"
+       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#b3b3b3;fill-opacity:1;stroke:none;font-family:Sans"
+       transform="translate(-97.805746,-447.63782)"><flowRegion
+         id="flowRegion4705"><rect
+           id="rect4707"
+           width="737.14288"
+           height="151.42857"
+           x="742.85712"
+           y="1202.8572"
+           style="fill:#b3b3b3" /></flowRegion><flowPara
+         id="flowPara4709"
+         style="font-size:64px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#b3b3b3;font-family:'8-bit Limit BRK';-inkscape-font-specification:'8-bit Limit BRK'">PRESS START TO CONTINUE</flowPara></flowRoot>  </g>
+</svg>
