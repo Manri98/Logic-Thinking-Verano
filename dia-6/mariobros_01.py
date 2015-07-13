@@ -51,15 +51,9 @@ def DireccionMario():
 	return comprobarMovimiento
 
 
-def Gravedad(x ,y):
-	a = -25
-	b = 25 
-	for i in range(a, b):
+def Gravedad(y, i): 
 		y += i
-		screen.fill((255,255,255)) 
-		screen.blit(mario_jump1,(x, y))
-		pygame.display.update()
-		pygame.time.wait(TIMER_MARIO)
+		return y
 		
 		
 
@@ -102,8 +96,8 @@ def main():
 			elif event.type == pygame.KEYDOWN:
 				if event.key == pygame.K_UP:
 					pressed_up = True
-					Gravedad(mario_pos_x, mario_pos_y)
 
+					
 				if event.key == pygame.K_RIGHT:
 					pressed_right = True
 					
@@ -136,8 +130,15 @@ def main():
 
 		# EJERCICIO 1: HAZ QUE MARIO SE MUEVA, SEGÚN SI LAS FLECHAS ESTÁN
 		# PULSADAS (pressed_up, pressed_right...)
-		#if pressed_up:
-			#mario_pos_y -= mario_speed	
+		if pressed_up:
+			a = -15
+			b = 15 
+			for i in range(a, b):
+				mario_pos_y += i
+				screen.fill((255,255,255)) 
+				screen.blit(mario_jump1,(mario_pos_x, mario_pos_y))
+				pygame.display.update()
+				pygame.time.wait(TIMER_MARIO)
 		if pressed_down:
 			mario_pos_y += mario_speed	
 		if pressed_left:
