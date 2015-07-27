@@ -80,7 +80,6 @@ def main():
 	air = False
 	disparando = False
 
-	fireball_speed = 2
 	mario_speed = 6
 	mario_pos_x = 100
 	mario_pos_y = 200
@@ -235,10 +234,16 @@ def main():
 		
 		#Devolver posiciones fireballs
 		for i in range (0, len(l_Fireballs)):
-			print(l_Fireballs[i].self.x)
-			print(l_Fireballs[i].self.y)
-	
+			print(l_Fireballs[i].x)
+			print(l_Fireballs[i].y)
 		
+		
+		if not len(l_Fireballs):
+			print("Lista vacia")
+		else:
+			#Moverse(l_Fireballs)
+			for i in range (0, len(l_Fireballs)):	
+s				screen.blit(fireball,(l_Fireballs[i].x, l_Fireballs[i].y))
 		
 
 
@@ -250,6 +255,9 @@ def main():
 
 		elif disparando:
 			screen.blit(mario,(mario_pos_x, mario_pos_y))
+			
+		elif l_Fireballs:
+			Dibujar(l_Fireballs)
 
 		else:
 			screen.blit(mario_fire,(mario_pos_x, mario_pos_y))
