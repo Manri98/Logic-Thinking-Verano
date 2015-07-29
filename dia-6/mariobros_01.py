@@ -243,7 +243,7 @@ def main():
 		else:
 			#Moverse(l_Fireballs)
 			for i in range (0, len(l_Fireballs)):	
-s				screen.blit(fireball,(l_Fireballs[i].x, l_Fireballs[i].y))
+				screen.blit(fireball,(l_Fireballs[i].x, l_Fireballs[i].y))
 		
 
 

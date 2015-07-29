@@ -18,6 +18,7 @@ import sys
 import time
 import threading
 from fireball import *
+from enemy import *
 
 ########################################################################
 # CONSTANTES
@@ -32,7 +33,10 @@ TIMER = 10
 # FUNCIONES
 ########################################################################
 
-
+def chocagoomba(a,b):
+	if pygame.sprite.spritecollide(a,b):
+		print("GAME OVER")
+	
 
 ########################################################################
 # FUNCIÓN PRINCIPAL DEL JUEGO
@@ -44,10 +48,9 @@ def main():
 	# SCREEN_HEIGHT
 	screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 	# LE PONEMOS TÍTULO A LA VENTANA DEL JUEGO
-	pygame.display.set_caption("Super Mario Bros")
+	pygame.display.set_caption("Mario Bros by Elías")
 	
 	# CARGA DE IMÁGENES
-	icono = pygame.image.load("sprites/hat_mario.png").convert_alpha()
 	fondo = pygame.image.load("fondos/fondo_02.png").convert_alpha()
 	mario = pygame.image.load("sprites/mario.png").convert_alpha()
 	mario_walk1 = pygame.image.load("sprites/mario-walk1.gif").convert_alpha()
@@ -59,9 +62,7 @@ def main():
 	mario_fireball = pygame.image.load("sprites/mario-fireball.gif").convert_alpha()
 	fireball= pygame.image.load("sprites/fireball.gif").convert_alpha()
 	goomba= pygame.image.load("sprites/goomba.gif").convert_alpha()
-	
-	#ICONO
-	pygame.display.set_icon(icono)
+
 	
 	# VARIABLES
 	mario_pos_x = 200
@@ -78,6 +79,7 @@ def main():
 	fireball_x = mario_pos_x
 	fireball_y = mario_pos_y
 	L_fireball = []
+	enemigo = False
 	
 	scroll_x = 0
 	scroll_y = 0
@@ -91,9 +93,6 @@ def main():
 	
 	# BUCLE PRINCIPAL DEL JUEGO
 	while True:
-		#####PRUEBA#####
-		if mario_pos_x == 300:
-			goomba = Goomba(mario_pos_x, mario_pos_y, direccion)
 
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
@@ -110,6 +109,7 @@ def main():
 					pressed_left = True
 				elif event.key == pygame.K_SPACE:
 					disparo = True
+					fireball_y = mario_pos_y
 					fire = Fireball(fireball_x, fireball_y, direccion)
 					L_fireball.append(fire)
 			elif event.type == pygame.KEYUP:
@@ -135,6 +135,8 @@ def main():
 					mario_walk3 = pygame.transform.flip(mario_walk3, True, False)
 					mario_jump = pygame.transform.flip(mario_jump, True, False)
 					mario_agachado = pygame.transform.flip(mario_agachado, True, False)
+					mario_fiery = pygame.transform.flip(mario_fiery, True, False)
+					mario_fireball = pygame.transform.flip(mario_fireball, True, False)
 					direccion = True
 				if not air:
 					screen.blit(fondo,(scroll_x, 0)) 
@@ -152,7 +154,7 @@ def main():
 					pygame.display.update()
 					pygame.time.wait(TIMER)
 					scroll_x -= MARIO_SPEED
-			if pressed_left:
+			if pressed_left and scroll_x <= -1:
 				if direccion:
 					mario = pygame.transform.flip(mario, True, False)
 					mario_walk1 = pygame.transform.flip(mario_walk1, True, False)
@@ -160,6 +162,8 @@ def main():
 					mario_walk3 = pygame.transform.flip(mario_walk3, True, False)
 					mario_jump = pygame.transform.flip(mario_jump, True, False)
 					mario_agachado = pygame.transform.flip(mario_agachado, True, False)
+					mario_fiery = pygame.transform.flip(mario_fiery, True, False)
+					mario_fireball = pygame.transform.flip(mario_fireball, True, False)
 					direccion = False
 				
 				if not air:
@@ -202,15 +206,16 @@ def main():
 				salto = -15
 				air = False
 		
-				
 		if disparo:
 			if L_fireball:
-				for bola in L_fireball:
+				for bola in L_fireball:					
 					mueve_fireball(bola)
 					screen.blit(fondo,(scroll_x, 0)) 
-					screen.blit(mario_fiery,(mario_pos_x, mario_pos_y))
+					screen.blit(mario,(mario_pos_x, mario_pos_y))
 					screen.blit(fireball,(bola.x, bola.y))
 					pygame.display.update()
+					if bola.x > SCREEN_WIDTH or bola.x < 0:
+						L_fireball.remove(bola)
 
 			else: 
 				disparo = False
@@ -218,11 +223,19 @@ def main():
 		else:
 			screen.blit(fondo,(scroll_x, 0)) 
 			screen.blit(mario,(mario_pos_x, mario_pos_y))
-			screen.blit(goomba,(goomba.x, goomba.y))
+			pygame.display.update()
+			
+		if scroll_x == -300:
+			e = Enemy(350,285,False)
+			enemigo = True
+		
+		if enemigo:
+			mueve_goomba(e, scroll_x)
+			screen.blit(goomba,(e.x, e.y))
 			pygame.display.update()
 
-
 		
+		chocagoomba(e, mario)
 		pygame.time.wait(TIMER)
 		
 				
