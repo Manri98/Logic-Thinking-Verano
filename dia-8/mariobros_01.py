@@ -19,6 +19,7 @@ import time
 import threading
 from fireball import *
 from enemy import *
+from mario import *
 
 ########################################################################
 # CONSTANTES
@@ -33,10 +34,9 @@ TIMER = 10
 # FUNCIONES
 ########################################################################
 
-def chocagoomba(a,b):
-	if pygame.sprite.spritecollide(a,b):
-		print("GAME OVER")
-	
+global scroll_x = 0
+global scroll_y = 0
+
 
 ########################################################################
 # FUNCIÓN PRINCIPAL DEL JUEGO
@@ -80,9 +80,8 @@ def main():
 	fireball_y = mario_pos_y
 	L_fireball = []
 	enemigo = False
-	
-	scroll_x = 0
-	scroll_y = 0
+	muertes = 0	
+
 	
 	# DIBUJAR EN PANTALLA LAS IMÁGENES INICIALES
 	screen.blit(fondo,(scroll_x, 0)) 
@@ -90,7 +89,7 @@ def main():
 	# ACTUALIZAR TODAS LAS IMÁGENES
 	pygame.display.flip()
 	
-	
+
 	# BUCLE PRINCIPAL DEL JUEGO
 	while True:
 
@@ -110,7 +109,7 @@ def main():
 				elif event.key == pygame.K_SPACE:
 					disparo = True
 					fireball_y = mario_pos_y
-					fire = Fireball(fireball_x, fireball_y, direccion)
+					fire = Fireball(fireball_x, fireball_y+40, direccion)
 					L_fireball.append(fire)
 			elif event.type == pygame.KEYUP:
 				moving = False
@@ -143,17 +142,17 @@ def main():
 					screen.blit(mario_walk1,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x -= MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 					screen.blit(fondo,(scroll_x, 0)) 
 					screen.blit(mario_walk2,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x -= MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 					screen.blit(fondo,(scroll_x, 0)) 
 					screen.blit(mario_walk3,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x -= MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 			if pressed_left and scroll_x <= -1:
 				if direccion:
 					mario = pygame.transform.flip(mario, True, False)
@@ -171,17 +170,17 @@ def main():
 					screen.blit(mario_walk1,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x += MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 					screen.blit(fondo,(scroll_x, 0)) 
 					screen.blit(mario_walk2,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x += MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 					screen.blit(fondo,(scroll_x, 0))  
 					screen.blit(mario_walk3,(mario_pos_x, mario_pos_y))
 					pygame.display.update()
 					pygame.time.wait(TIMER)
-					scroll_x += MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 			if pressed_down:
 				screen.blit(fondo,(scroll_x, 0))  
 				screen.blit(mario_agachado,(mario_pos_x, mario_pos_y))
@@ -193,9 +192,9 @@ def main():
 		if air:
 			if salto <= 15:
 				if direccion:
-					scroll_x -= MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 				else:
-					scroll_x += MARIO_SPEED
+					MueveMario(direccion, air, moving, pressed_up, pressed_right, pressed_down, pressed_left)
 				mario_pos_y += salto
 				salto += 1
 				screen.blit(fondo,(scroll_x, 0))  
@@ -226,7 +225,7 @@ def main():
 			pygame.display.update()
 			
 		if scroll_x == -300:
-			e = Enemy(350,285,False)
+			e = Enemy(300,285,False)
 			enemigo = True
 		
 		if enemigo:
@@ -234,9 +233,16 @@ def main():
 			screen.blit(goomba,(e.x, e.y))
 			pygame.display.update()
 			for bola in L_fireball:
-				chocagoomba(e, bola)
-
-
+				if colision_enemigo(bola, e):
+					enemigo = False
+					muertes += 1
+					
+				
+		pygame.font.init()
+		fuente = pygame.font.Font(None, 30)
+		texto = fuente.render('MUERTES = ' + str(muertes), 1, (255, 0, 0))
+		screen.blit(texto, (0, 50))
+		pygame.display.flip()
 		pygame.time.wait(TIMER)
 		
 				
