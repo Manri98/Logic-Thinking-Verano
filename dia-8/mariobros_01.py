@@ -26,7 +26,6 @@ from mario import *
 ########################################################################
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
-MARIO_SPEED = 4
 TIMER = 10
 
 
@@ -34,8 +33,7 @@ TIMER = 10
 # FUNCIONES
 ########################################################################
 
-global scroll_x = 0
-global scroll_y = 0
+
 
 
 ########################################################################
@@ -52,14 +50,6 @@ def main():
 	
 	# CARGA DE IMÁGENES
 	fondo = pygame.image.load("fondos/fondo_02.png").convert_alpha()
-	mario = pygame.image.load("sprites/mario.png").convert_alpha()
-	mario_walk1 = pygame.image.load("sprites/mario-walk1.gif").convert_alpha()
-	mario_walk2 = pygame.image.load("sprites/mario-walk2.gif").convert_alpha()
-	mario_walk3 = pygame.image.load("sprites/mario-walk3.gif").convert_alpha()
-	mario_jump = pygame.image.load("sprites/mario-jump.gif").convert_alpha()
-	mario_agachado = pygame.image.load("sprites/mario-duck.gif").convert_alpha()
-	mario_fiery = pygame.image.load("sprites/mario-fiery.gif").convert_alpha()
-	mario_fireball = pygame.image.load("sprites/mario-fireball.gif").convert_alpha()
 	fireball= pygame.image.load("sprites/fireball.gif").convert_alpha()
 	goomba= pygame.image.load("sprites/goomba.gif").convert_alpha()
 
